@@ -10,7 +10,13 @@ var port = process.env.PORT || 3000;
 require('./api/models/message');
 
 mongoose.connect('mongodb://localhost/simple-rest-api', { useNewUrlParser: true });
-mongoose.connection.on('error', console.error.bind(console, 'connection error!'));
+var db = mongoose.connection;
+db.on('error', function(err) {
+    logger.error('db connection error:', err.message);
+});
+db.once('open', function() {
+    logger.info('connected to db');
+});
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
