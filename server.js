@@ -11,10 +11,10 @@ require('./api/models/message');
 mongoose.connect(config.get('mongoose:uri'), { useNewUrlParser: true });
 var db = mongoose.connection;
 db.on('error', function(err) {
-    logger.error('db connection error:', err.message);
+    logger.error('DB connection error:', err.message);
 });
 db.once('open', function() {
-    logger.info('connected to db');
+    logger.info('Connected to DB');
 });
 
 var app = express();
