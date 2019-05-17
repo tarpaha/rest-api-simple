@@ -11,5 +11,11 @@
     "url": "git+https://github.com/tarpaha/simple_rest_api.git"
   },
   "author": "tarpaha",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  },
+  "dependencies": {
+    "express": "^4.17.0"
+  }
 }
