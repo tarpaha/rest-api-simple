@@ -1,9 +1,10 @@
 'use strict';
 
-module.exports = function(app) {
+const express = require('express');
+const router = express.Router();
+const messageController = require('../controllers/messages');
 
-    var controller = require('../controllers/message');
+router.get('/', messageController.getAll);
+router.post('/', messageController.create);
 
-    app.get('/messages', controller.list);
-    app.post('/messages', controller.add)
-}
+module.exports = router;

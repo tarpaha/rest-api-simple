@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var logger = require('./libs/logger');
 var config = require('./libs/config');
 
-require('./api/models/message');
+require('./api/models/messages');
 
 mongoose.connect(config.get('mongoose:uri'), { useNewUrlParser: true });
 var db = mongoose.connection;
@@ -21,7 +21,8 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-require('./api/routes/messages')(app);
+const messages = require('./api/routes/messages');
+app.use('/messages', messages);
 
 var port = config.get('port');
 app.listen(port, function() {
