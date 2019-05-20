@@ -31,6 +31,6 @@ module.exports.create = function(req, res) {
             });
         }
         logger.info('Message added');
-        return res.send({ status: 'OK', message: message });
+        res.send({ status: 'success', message: message });
     });
 }
