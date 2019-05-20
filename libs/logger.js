@@ -1,4 +1,5 @@
 'use strict';
+
 const { createLogger, format, transports } = require('winston');
 
 module.exports = createLogger({
