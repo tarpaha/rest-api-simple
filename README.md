@@ -1,4 +1,4 @@
-# simple-rest-api
+# rest-api-simple
 Simplest Rest API service on NodeJS
 
 ## How to use
